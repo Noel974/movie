@@ -1,40 +1,100 @@
-.header {
-  h1 {
-    font-size: 3.3rem;
-    text-shadow: 2px 3px 0px $color-1;
-    text-align: center;
-    letter-spacing: 2px;
-  }
-  nav {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    font-size: 1.3rem;
+.form-component {
+  background-color: rgba(128, 128, 128, 0.8); // Fond gris avec opacité
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); // Ombre pour profondeur
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto; // Centré horizontalement
 
-    ul {
-      display: flex;
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-      a {
-        text-decoration: none;
-        color: $white;
-        border-radius: 10px;
-        width: 102px;
-        text-align: center;
-        margin-right: 5px;
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-        &:visited {
-          text-decoration: none;
-          color: $white;
-        }
-        &:hover {
-          background: $black;
-        }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
       }
-      a.nav-active {
-        background: $color-1;
+    }
 
-        &:hover {
-          background: $black;
+    .checkbox-container {
+      label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .genre-select-container {
+      label {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      select {
+        background-color: #f9f9f9;
+      }
+    }
+  }
+
+  .btn-sort-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    .btn-sort {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: #0056b3;
+      }
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      span {
+        display: inline-block;
+        transform: rotate(0deg); // Par défaut aucune rotation
+        transition: transform 0.3s;
+
+        // Flèche vers le haut si tri inversé (active)
+        .btn-sort.active & {
+          transform: rotate(180deg);
+        }
+
+        // Flèche vers le haut uniquement pour "goodToBad"
+        &:nth-of-type(1).btn-sort.active {
+          transform: rotate(0deg);
         }
       }
     }

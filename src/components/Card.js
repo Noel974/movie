@@ -67,11 +67,15 @@ const Card = ({ movie }) => {
         case 37:
           genreArray.push(`Western`);
           break;
+        case 18: // Films interdits aux moins de 18 ans
+          genreArray.push(`Interdit aux moins de 18 ans`);
+          break;
         default:
+          genreArray.push(`Genre inconnu`);
           break;
       }
     }
-    return genreArray.map((genre) => <li key={genre}>{genre}</li>);
+    return genreArray.map((genre, index) => <li key={index}>{genre}</li>);
   };
 
   const addStorage = () => {
@@ -101,7 +105,7 @@ const Card = ({ movie }) => {
             ? "https://image.tmdb.org/t/p/w500" + movie.poster_path
             : "./img/poster.jpg"
         }
-        alt="affiche film"
+        alt={`Affiche du film ${movie.title}`}
       />
       <h2>{movie.title}</h2>
       {movie.release_date ? (
@@ -110,33 +114,36 @@ const Card = ({ movie }) => {
         ""
       )}
       <h4>
-        {movie.vote_average}/10 <span>⭐</span>
+        {movie.vote_average}/10 <span aria-label="étoile">⭐</span>
       </h4>
-
-      <ul>
-        {movie.genre_ids
-          ? genreFinder()
-          : movie.genres.map((genre, index) => (
-              <li key={index}>{genre.name}</li>
-            ))}
-      </ul>
+       <ul aria-label="Genres">{genreFinder()}</ul>
+    {/* Afficher si le film est interdit aux moins de 18 ans */}
+    {movie.adult && (
+      <p style={{ color: "red", fontWeight: "bold" }}>
+        Interdit aux moins de 18 ans
+      </p>
+    )}
       {movie.overview ? <h3>Synopsis</h3> : ""}
       <p>{movie.overview}</p>
-
       {movie.genre_ids ? (
-        <div className="btn" onClick={() => addStorage()}>
+        <button
+          className="btn"
+          onClick={() => addStorage()}
+          aria-label={`Ajouter ${movie.title} aux coups de cœur`}
+        >
           Ajouter aux coups de coeur
-        </div>
+        </button>
       ) : (
-        <div
+        <button
           className="btn"
           onClick={() => {
             deleteStorage();
             window.location.reload();
           }}
+          aria-label={`Supprimer ${movie.title} de la liste`}
         >
           Supprimer de la liste
-        </div>
+        </button>
       )}
     </div>
   );

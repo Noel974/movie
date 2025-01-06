@@ -1,75 +1,102 @@
 .form-component {
-  .form-container {
-    text-align: center;
-  }
-  form {
-    width: 300px;
-    margin: 0 auto;
+  background-color: rgba(128, 128, 128, 0.8); /* Fond gris avec opacité */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto; /* Centrer horizontalement */
+}
 
-    input[type="text"] {
-      padding: 1px 10px;
-      border-radius: 10px 10px 0 0;
-      border: none;
-      font-size: 1.5rem;
-      display: block;
-      margin: 0 auto;
-      width: 220px;
-      outline: none;
-      text-align: center;
-    }
-    input[type="submit"] {
-      padding: 1px 10px;
-      width: 220px;
-      border-radius: 0 0 10px 10px;
-      border: none;
-      background: $color-1;
-      color: $white;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 10;
-      position: relative;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-      &:hover {
-        background: $black;
-      }
-    }
-  }
-  .btn-sort-container {
-    margin: 8px auto;
-    width: 220px;
-    display: flex;
-    justify-content: space-around;
-    cursor: pointer;
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
 
-    #goodToBad {
-      border-radius: 10px 0 0 10px;
-    }
-    #badToGood {
-      border-radius: 0 10px 10px 0;
-    }
-    #goodToBad,
-    #badToGood {
-      background: $color-1;
-      width: 110px;
-      transition: 0.3s;
-      position: relative;
+input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
-      &:hover {
-        background: $black;
-      }
-    }
-    #goodToBad span {
-      transform: translateY(-50%) rotate(-90deg);
-      right: 18px;
-    }
-    #badToGood span {
-      transform: translateY(-50%) rotate(90deg);
-      left: 16px;
-    }
-    #goodToBad span,
-    #badToGood span {
-      position: absolute;
-      top: 50%;
-    }
-  }
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.checkbox-container label,
+.genre-select-container label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+select {
+  background-color: #f9f9f9;
+}
+
+.btn-sort-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn-sort {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-sort:hover {
+  background-color: #0056b3;
+}
+
+.btn-sort.active {
+  background-color: #0056b3;
+}
+
+.btn-sort span {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+/* Flèches pour le tri */
+#goodToBad span {
+  transform: translateY(-50%) rotate(-90deg);
+  right: 18px;
+}
+
+#badToGood span {
+  transform: translateY(-50%) rotate(90deg);
+  left: 16px;
+}
+
+.btn-sort:first-of-type.active span {
+  transform: rotate(0deg); /* Flèche vers le bas pour le tri "goodToBad" */
+}
+
+.btn-sort:last-of-type.active span {
+  transform: rotate(180deg); /* Flèche vers le haut pour le tri "badToGood" */
 }

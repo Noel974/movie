@@ -1,0 +1,24 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre horizontalement */
+    justify-content: center; /* Centre verticalement */
+    text-align: center; /* Aligne le texte au centre */
+    background-color: #333; /* Couleur d'arrière-plan */
+    color: #fff; /* Couleur du texte */
+    padding: 20px; /* Espacement interne */
+    margin-top: 20px; /* Espacement au-dessus du footer */
+    width: 100%; /* Prend toute la largeur */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.2); /* Ombre subtile */
+  }
+  
+  .footer a {
+    color: #007bff; /* Couleur du lien */
+    text-decoration: none; /* Supprime le soulignement */
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #0056b3; /* Couleur du lien au survol */
+  }
+  
