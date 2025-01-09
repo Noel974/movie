@@ -1,8 +1,8 @@
 import React from "react";
 import GenreFinder from "./GenreFinder";
-import { addToFavourites, dateFormatter, removeFromFavourites } from "./Manager";
+import { addToFavourites, dateFormatter } from "./Manager";
 
-const Card = ({ movie }) => {
+const Card = ({ movie, isFavourite, removeFromFavourites  }) => {
   const isAdult = movie.adult; // Vérifie si le film est pour adultes
 
   return (
@@ -48,13 +48,15 @@ const Card = ({ movie }) => {
         >
           coups de cœur
         </button>
-        <button
-          className="btn btn-danger mt-3"
-          onClick={() => removeFromFavourites(movie.id)}
-          aria-label={`Supprimer ${movie.title} des coups de cœur`}
-        >
-          Supprimer
-        </button>
+        {isFavourite && (
+          <button
+            className="btn btn-danger mt-3"
+            onClick={() => removeFromFavourites(movie.id)}
+            aria-label={`Supprimer ${movie.title} des coups de cœur`}
+          >
+            Supprimer
+          </button>
+        )}
       </div>
     </div>
   );
