@@ -9,7 +9,9 @@ const App = () => {
     return (
 <BrowserRouter>
         <Header/>
-    <RouteIndex />
+        <main className='main'>
+        <RouteIndex />
+        </main>
     <Footer/>
 </BrowserRouter>
     );

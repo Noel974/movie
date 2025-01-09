@@ -12,7 +12,7 @@ $font-2: "font-2", sans-serif;
 
 $color-1: #546fe4;
 $color-2: url(../assets/image/j.jpeg);
-$color-3: rgb(100, 100, 100);
+$color-3: rgba(128, 128, 128, 0.863);
 $black: #060d2c;
 $white: rgb(238, 238, 238);
 
@@ -23,15 +23,31 @@ $white: rgb(238, 238, 238);
   font-family: $font-1;
 }
 
+
 body {
   background: $color-2;
   color: $white;
+  margin: 0;
+  padding: 0;
+  font-family: $font-1;
+  min-height: 100vh;
+  display: flex; /* Permet de créer une disposition flexbox */
+  flex-direction: column; /* Dispose les éléments verticalement */
 }
-li {
-  list-style: none;
-}
-.result {
+
+.app-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column; /* Colonne pour Header, main, Footer */
+  min-height: 100vh; /* Assure que le conteneur prend toute la hauteur de la page */
+}
+
+main {
+  flex: 1; /* Prend tout l'espace disponible entre le Header et le Footer */
+  padding: 20px; /* Optionnel : ajoute un peu d'espace autour du contenu */
+}
+
+footer {
+  background: $black; /* Exemple de style pour le footer */
+  padding: 10px;
+  text-align: center;
 }

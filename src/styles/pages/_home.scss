@@ -1,2 +1,8 @@
-.home-page {
-}
+li {
+    list-style: none;
+  }
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }

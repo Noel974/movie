@@ -1,0 +1,53 @@
+.a-propos {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.accordion {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    background-color: #f9f9f9;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: left;
+    width: 100%;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: #f1f1f1;
+}
+
+.accordion-content {
+    padding: 15px;
+    display: none; /* Masqué par défaut */
+    background-color: $color-3;
+    color: black;
+    font-size: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.accordion-content.open {
+    display: block; /* Affiché lorsque ouvert */
+}
+
+.accordion-header[aria-expanded="true"] {
+    background-color: #ddd;
+}
